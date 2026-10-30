@@ -1,0 +1,25 @@
+{
+  "name": "chroma-color-language",
+  "version": "5.2.0",
+  "description": "CHROMA color language translator for Windows",
+  "main": "main.js",
+  "author": "CHROMA",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "dist:win": "electron-builder --win nsis portable",
+    "dist": "electron-builder"
+  },
+  "devDependencies": {
+    "electron": "^35.0.0",
+    "electron-builder": "^26.0.0"
+  },
+  "build": {
+    "appId": "com.chroma.translator",
+    "productName": "CHROMA Color Translator",
+    "directories": {"output": "dist"},
+    "files": ["main.js", "src/**/*", "package.json"],
+    "win": {"target": ["nsis", "portable"], "artifactName": "CHROMA-${version}-${arch}.${ext}"},
+    "nsis": {"oneClick": false, "allowToChangeInstallationDirectory": true, "createDesktopShortcut": true}
+  }
+}
